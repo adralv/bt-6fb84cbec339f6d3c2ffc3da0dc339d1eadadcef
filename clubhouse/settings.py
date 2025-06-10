@@ -26,6 +26,7 @@ if not SUPABASE_URL:
     raise ValueError("SUPABASE_URL is not set in environment variables")
 # Create Supabase Client
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+# /friend
 SUPABASE_BUCKET_NAME = "media"
 SUPABASE_STORAGE_URL = f"{SUPABASE_URL}/storage/v1/object/public/{SUPABASE_BUCKET_NAME}"
 
