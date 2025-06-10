@@ -1,0 +1,48 @@
+{% load static %}
+
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{%url 'index'%}"><img src="https://www.bergen.org/cms/lib/NJ02213295/Centricity/Domain/612/Teterboro.png" alt="BT Clubhouse" class="rounded-circle" width="120" height="60"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                <li 
+                {% if '/' == request.path %}
+                class = "nav-item active mr-3"
+                {% else %}
+                class = "nav-item mr-3"
+                {% endif %}
+                >
+                    <a class="nav-link" href="{%url 'index'%}">Home</a></li>
+                <li
+                {% if 'club' in request.path %}
+                class = "nav-item active mr-3"
+                {% else %}
+                class = "nav-item mr-3"
+                {% endif %}>
+                    <a class="nav-link" href="{% url 'club_list' %}">Clubs</a>
+                </li>
+                <li 
+                {% if 'contact' == request.path %}
+                class = "nav-item active mr-3"
+                {% else %}
+                class = "nav-item mr-3"
+                {% endif %}><a class="nav-link" href="{% url 'contact'%}">Contact</a></li>
+                <li class="nav-item">            
+                    <a href="javascript:{document.getElementById('logout').submit()}" class='nav-link'><i class="fas fa-user-times"></i> Logout</a>
+                    <form action="{%url 'logout'%}" method='POST' id='logout'>
+                        {% csrf_token %}
+                        <input type="hidden">
+        
+                    </form></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+            
+            </ul>
+        </div>
+    </div>
+</nav>

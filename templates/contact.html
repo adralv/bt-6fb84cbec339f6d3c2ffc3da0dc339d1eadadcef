@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+          <div class="container text-center">
+            <h1 class="fw-bolder">Contact Us For Any Issues</h1>
+        </div>
+    </div>
+</header>
+<!-- Page Content-->
+<div class="container">
+    <div class="row">
+        <!-- Main content column -->
+        <div class="col-lg-8">
+            <!-- Contact form -->
+            <div class="card mb-4">
+                <div class="card-header">Report any techinical issues!</div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        {% comment %} <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div> {% endcomment %}
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side widgets -->
+        <div class="col-lg-4">
+            <!-- Info widget -->
+            <div class="card mb-4">
+                <div class="card-header">Our Contact Information</div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> btcomp26@bergen.org</p>
+                    <p><strong>Phone:</strong> (201) 343-6000</p>
+                    <p><strong>Address:</strong><br>Bergen County Technical Schools, 504 US-46<br>Teterboro, NJ 07608</p>
+                </div>
+            </div>
+
+            <!-- Custom message -->
+            <div class="card mb-4">
+                <div class="card-header">Need Help?</div>
+                <div class="card-body">
+                    We’re here to answer any questions you might have. Just fill out the form and we’ll get back to you as soon as we can.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

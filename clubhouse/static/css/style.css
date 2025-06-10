@@ -1,0 +1,324 @@
+/* === Base Reset and Typography === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Navbar === */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+    color: #ffc107 !important;
+    transition: color 0.2s ease;
+}
+
+/* === Header === */
+header.py-5 {
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+/* === Cards === */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    border-radius: 12px 12px 0 0;
+    object-fit: cover;
+    height: 180px;
+    width: 100%;
+    background-color: #e9ecef;
+}
+
+/* === Buttons === */
+.btn {
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0062E6;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #004db3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #565e64;
+}
+
+/* === Alerts === */
+.alert {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* === Pagination === */
+.pagination .page-item .page-link {
+    border-radius: 8px;
+    margin: 0 4px;
+}
+
+/* === Forms === */
+.form-control {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #33AEFF;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* === Footer === */
+footer {
+    margin-top: 40px;
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #444;
+}
+
+/* === Club Details === */
+.club-detail .card-title {
+    font-weight: bold;
+    color: #0062E6;
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 768px) {
+    header .my-5 {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+/* === DARK MODE === */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Dark cards and components */
+body.dark-mode .card {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+body.dark-mode .card-header {
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
+}
+
+/* Dark navbar and footer */
+body.dark-mode .navbar,
+body.dark-mode footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+}
+
+/* Inputs & forms */
+body.dark-mode .form-control {
+    background-color: #2a2a2a;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: #2a2a2a;
+    border-color: #66b2ff;
+    box-shadow: 0 0 0 0.2rem rgba(102, 178, 255, 0.25);
+}
+
+/* Dark buttons */
+body.dark-mode .btn-primary {
+    background-color: #2196f3;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #1e88e5;
+}
+
+body.dark-mode .btn-secondary {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: #555;
+}
+
+/* List groups */
+body.dark-mode .list-group-item {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    border-color: #333;
+}
+
+/* Misc */
+body.dark-mode .bg-light {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-mode .border-bottom {
+    border-color: #333 !important;
+}
+/* === FullCalendar Styling === */
+#calendar {
+    font-size: 0.95rem;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Calendar Header */
+.fc .fc-toolbar-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0062E6;
+}
+
+.fc .fc-button {
+    border-radius: 25px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+.fc .fc-button-primary {
+    background-color: #0062E6;
+    border: none;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #004db3;
+}
+
+/* Day Cells */
+.fc-daygrid-day-frame {
+    padding: 8px;
+}
+
+.fc-event {
+    background-color: #33AEFF;
+    border: none;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.fc-event:hover {
+    background-color: #1c8cdc;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/* Dark Mode Compatibility */
+body.dark-mode #calendar {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .fc-event {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+body.dark-mode .fc-toolbar-title {
+    color: #66b2ff;
+}
+/* Custom tooltip style for events */
+.calendar-tooltip.bs-tooltip-auto[data-popper-placement^="top"] .tooltip-arrow::before {
+    border-top-color: #0062E6;
+}
+
+.calendar-tooltip .tooltip-inner {
+    background-color: #0062E6;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.announcement-item {
+  position: relative;
+}
+
+/* Light mode (default) */
+.delete-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+
+  transform: translate(1px, 0);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.announcement-item:hover .delete-btn {
+  display: inline-flex;
+}
+
+/* === DARK MODE for delete button === */
+body.dark-mode .delete-btn {
+  background-color: #b71c1c; /* dark red */
+  color: #e0e0e0; /* light text */
+  box-shadow: 0 0 8px rgba(183, 28, 28, 0.7);
+}
+
+body.dark-mode .announcement-item:hover .delete-btn {
+  background-color: #f44336; /* brighter red on hover */
+  box-shadow: 0 0 12px rgba(244, 67, 54, 0.9);
+}
+body.dark-mode .announcement-item {
+  background-color: #1f1f1f; /* dark card color to match your dark mode cards */
+  color: #e0e0e0; /* light text */
+  border: 1px solid #333; /* subtle border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+    <div class="container text-center">
+            <h1 class="fw-bolder">Explore All Clubs</h1>
+            <p class="lead mb-0">Browse clubs and find your community.</p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <!-- Side Panel: Search + Filters -->
+        <div class="col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-header">Search &amp; Filter</div>
+                <div class="card-body">
+                    <form method="GET">
+                        <!-- Search Bar -->
+                        <div class="mb-3">
+                            <label for="keywords" class="form-label">Search Clubs</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="keywords" 
+                                name="keywords" 
+                                placeholder="Club name..." 
+                                value="{{ request.GET.keywords|default:'' }}">
+                        </div>
+
+                        <!-- Filter by Tag -->
+                        <div class="mb-3">
+                            <label for="tag" class="form-label">Filter by Tag</label>
+                            <select class="form-select" name="tag" id="tag">
+                                <option value="">All</option>
+                                {% for tag in tags %}
+                                    <option value="{{ tag.name }}" {% if request.GET.tag|default:'' == tag.name %}selected{% endif %}>
+                                        {{ tag.name|capfirst }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary w-100">Apply</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+            <!-- Club Grid -->
+    <div class="col-lg-9">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
+            {% for club in clubs %}
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img class="card-img-top"
+                            src="{{ club.image.url }}"
+                            alt="{{ club.club_name }}"
+                            style="height: 100%; width: 100%; object-fit: cover;">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ club.club_name }}</h5>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'club_details' club.id %}" class="btn btn-primary btn-sm">View</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        <nav class="my-4" aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if clubs.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ clubs.previous_page_number }}">Previous</a>
+                </li>
+                {% endif %}
+                <li class="page-item disabled">
+                    <span class="page-link">Page {{ clubs.number }} of {{ clubs.paginator.num_pages }}</span>
+                </li>
+                {% if clubs.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ clubs.next_page_number }}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+
+    </div>
+</div>
+
+{% endblock %}
